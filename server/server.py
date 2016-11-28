@@ -1,12 +1,19 @@
 # Python 3.x
 import sys 
 import config
+import os
+import time
 
 verbose = False
 generateConfig = False
 configFile = config.configParser()
 
 helpText = "\nThis is a python script to manage an ark server.\n\n-h\tDisplays help text.\n-v\tVerbose mode(not working).\n-c\tGenerates a new config file for the script."
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+def startServer():
+    os.system(configFile.read("Server Path") + configFile.read("Server Script"))
 
 # Check for arguments
 for arg in sys.argv:
@@ -31,16 +38,12 @@ while(True):
 
 	if command == "QUIT" or command == "Q":
 		print('\nQuitting...')
-		exit()
-	elif command == "CONFIG GENERATE"	 or 			command == "C":
-		print('\nGenerating Config...')
-		configFile.generate()
+   		exit()
+   	elif command == "CONFIGGEN" or command == "C":
+		print('\nGenerating new config file...')
 	elif command == "START" or command == "S":
-		print("\nStarting Server...")
-		startServer()
-	
-	else:
-		print('\nPlease enter a command')
-	
-
+        	print('\nStarting Ark Server...')
+	time.sleep(2)
+	cls()
 exit()
+
