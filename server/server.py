@@ -25,11 +25,22 @@ for arg in sys.argv:
 configFile.load()
 
 print("Welcome to the ark management script")
-command = input()
-command = command.upper()
+while(True):
+	command = input()
+	command = command.upper()
 
-if command == "QUIT" or command == "Q":
-	print('\nQuitting...')
-	exit()	
+	if command == "QUIT" or command == "Q":
+		print('\nQuitting...')
+		exit()
+	elif command == "CONFIG GENERATE"	 or 			command == "C":
+		print('\nGenerating Config...')
+		configFile.generate()
+	elif command == "START" or command == "S":
+		print("\nStarting Server...")
+		startServer()
+	
+	else:
+		print('\nPlease enter a command')
+	
 
 exit()
