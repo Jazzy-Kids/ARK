@@ -1,5 +1,5 @@
 # Python 3.x
-import sys 
+import sys
 import config
 import os
 import time
@@ -11,10 +11,10 @@ configFile = config.configParser()
 helpText = "\nThis is a python script to manage an ark server.\n\n-h\tDisplays help text.\n-v\tVerbose mode(not working).\n-c\tGenerates a new config file for the script."
 
 def cls():
-    os.system('cls' if os.name=='nt' else 'clear')
+	os.system('cls' if os.name=='nt' else 'clear')
 def startServer():
-    os.system(configFile.read("Server Path") + configFile.read("Server Script"))
-
+	os.system(configFile.read("Server Path") + configFile.read("Server Script"))
+	
 # Check for arguments
 for arg in sys.argv:
 	if arg == '-v':
@@ -29,21 +29,24 @@ for arg in sys.argv:
 	elif arg != sys.argv[0]:
 		print('error: unkown argument.  Exiting...')
 		exit()
+		
 configFile.load()
-while True:
-    print("Welcome to the ark management script")
-    command = input()
-    command = command.upper()
 
-    if command == "QUIT" or command == "Q":
-    	print('\nQuitting...')
-    	exit()
-    elif command == "CONFIGGEN" or command == "C":
-        print('\nGenerating new config file...')
-    elif command == "START" or command == "S":
-        print('\nStarting Ark Server...')
-    time.sleep(2)
-    cls()
-
+print("Welcome to the ark management script")
+while(True):
+	command = input()
+	command = command.upper()
+	
+	if command == "QUIT" or command == "Q":
+		print('\nQuitting...')
+		exit()
+	elif command == "CONFIGGEN" or command == "C":
+		print('\nGenerating new config file...')
+	elif command == "START" or command == "S":
+		print('\nStarting Ark Server...')
+		startServer()
+	time.sleep(2)
+	cls()
+	
 exit()
 
