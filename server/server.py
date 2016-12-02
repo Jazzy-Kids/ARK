@@ -31,23 +31,6 @@ for arg in sys.argv:
 		exit()
 		
 configFile.load()
-<<<<<<< HEAD
-
-print("Welcome to the ark management script")
-while(True):
-	command = input()
-	command = command.upper()
-
-	if command == "QUIT" or command == "Q":
-		print('\nQuitting...')
-   		exit()
-   	elif command == "CONFIGGEN" or command == "C":
-		print('\nGenerating new config file...')
-	elif command == "START" or command == "S":
-        	print('\nStarting Ark Server...')
-	time.sleep(2)
-	cls()
-=======
 
 print("Welcome to the ark management script")
 while(True):
@@ -64,6 +47,5 @@ while(True):
 		startServer()
 	elif command == "HELP" or command == "H" or command == "?":
 		print(helpText)
->>>>>>> 40e8b9ab13dbc96685a3591d9303225ecd5aacdc
 exit()
 
